@@ -29,7 +29,7 @@ let package = Package(
             name: "YAnalyticsAdobe",
             dependencies: [
                 .product(name: "AEPAnalytics", package: "aepsdk-analytics-ios"),
-                .product(name: "YAnalytics", package: "yanalytics-ios"),
+                .product(name: "YAnalytics", package: "yanalytics-ios")
             ]
         ),
         .testTarget(
