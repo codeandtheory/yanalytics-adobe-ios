@@ -1,8 +1,13 @@
-# yanalytics-adobe-ios
+# Y—Analytics Adobe
+_An Adobe implementation of Y—Analytics' `AnalyticsEngine` protocol._
+
+This framework links the [Adobe Experience Platform Analytics SDK](https://github.com/adobe/aepsdk-analytics-ios) to implement an Adobe version of [Y—Analytics](https://github.com/yml-org/yanalytics-ios)' `AnalyticsEngine` protocol.
 
 Licensing
 ----------
 Y—Analytics Adobe is licensed under the [Apache 2.0 license](LICENSE).
+
+Adobe Experience Platform Analytics SDK is licensed under the [Apache 2.0 license](https://github.com/adobe/aepsdk-analytics-ios/blob/main/LICENSE).
 
 Documentation
 ----------
@@ -11,6 +16,11 @@ Documentation is automatically generated from source code comments and rendered 
 
 Usage
 ----------
+
+Dependencies
+----------
+
+Y—Analytics Adobe depends upon our [Y—Analytics](https://github.com/yml-org/yanalytics-ios) framework (which is also open source and Apache 2.0 licensed).
 
 Installation
 ----------
