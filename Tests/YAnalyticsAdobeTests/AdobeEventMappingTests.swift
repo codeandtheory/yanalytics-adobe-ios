@@ -39,7 +39,15 @@ final class PendoEventMappingTests: XCTestCase {
         XCTAssertEqual(sut.type, .state)
         XCTAssertEqual(sut.name, AnalyticsEvent.eventKey)
     }
-    
+
+    func test_defaultEvent() {
+        // Given
+        let sut = AdobeEventMapping.defaultEvent
+
+        // Then
+        XCTAssertEqual(sut.type, .state)
+    }
+
     func test_defaultMapping() {
         // Given
         let sut = AdobeEventMapping.default
