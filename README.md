@@ -17,6 +17,63 @@ Documentation is automatically generated from source code comments and rendered 
 Usage
 ----------
 
+### `AdobeAnalyticsEngine`
+`AdobeAnalyticsEngine` implements the `AnalyticsEngine` protocol, and in its `track(event:)` method it maps the `AnalyticsEvent` enum to the appropriate Adobe methods.
+
+Internally the Adobe SDK is just using singleton objects, but the goal of Y—Analytics is to use Dependency Injection of a generic wrapper. This allows your project code to be loosely coupled to your choice of analytics provider. It also facilitates unit testing and a healthy app architecture.
+
+Just be aware that even if you declare multiple instances of `AdobeAnalyticsEngine`, that they all reference the same Adobe SDK singleton.
+
+When unit testing various components of your project, you should inject an instance of `MockAnalyticsEngine` instead of the Adobe engine. This allows your unit tests to run without any Adobe dependency and allows you to verify which events are tracked and when.
+
+#### Simple use case: app ID
+You may initialize `AdobeAnalyticsEngine` by passing an Adobe app ID.
+
+```swift
+import YAnalyticsAdobe
+
+final class AppCoordinator {
+    let engine: AnalyticsEngine = {
+        let config = AdobeAnalyticsConfiguration(appId: "S3cr3t!")
+        return AdobeAnalyticsEngine(configuration: config)
+    }()
+    
+    func trackSomething(someData: [String: Any]?) {
+        engine.track(
+            event: .event(name: "Something", parameters: someData)
+        )
+    }
+}
+```
+
+
+#### Additional configuration options
+In addition to the required app id, `AdobeAnalyticsConfiguration` can be initialized with the following additional parameters:
+
+1. extensions: extensions to register with Adobe.
+2. mappings: information for mapping from `AnalyticsEvent` to Adobe events.
+3. logLevel: logging level to use
+
+```swift
+import YAnalyticsAdobe
+
+final class AppCoordinator {
+    let extensions: [NSObject.Type] = ...
+    let logLevel: LogLevel = ...
+    let mappings: [String: AdobeEventMapping] = ...
+    
+    let engine: AnalyticsEngine = {
+        let config = AdobeAnalyticsConfiguration(
+            extensions: extensions,
+            appId: "S3cr3t",
+            logLevel: logLevel,
+            mappings: mappings
+        )
+        return AdobeAnalyticsEngine(configuration: config)
+    }()
+}
+```
+
 Dependencies
 ----------
 
