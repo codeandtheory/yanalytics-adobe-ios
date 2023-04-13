@@ -1,4 +1,7 @@
 ![Y—Analytics Adobe](https://user-images.githubusercontent.com/1037520/231185335-807d15b5-fa0b-4dd5-aba4-b7be18001d95.jpeg)
+[![Swift](https://img.shields.io/badge/Swift-5.5-orange)](https://www.swift.org/documentation/) 
+[![Platforms](https://img.shields.io/badge/Platform-iOS-orange)](https://img.shields.io/badge/Platform-iOS-orange) 
+
 _An Adobe implementation of Y—Analytics' `AnalyticsEngine` protocol._
 
 This framework links the [Adobe Experience Platform Analytics SDK](https://github.com/adobe/aepsdk-analytics-ios) to implement an Adobe version of [Y—Analytics](https://github.com/yml-org/yanalytics-ios)' `AnalyticsEngine` protocol.
